@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Συνοψη κίτρινων καρτών</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 5px 0;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        a {
+            text-decoration: none;
+            color: #4CAF50;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        a:hover {
+            color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Συνοψη κίτρινων καρτών</h1>
+        {% if player_cards %}
+            {% for team, players in player_cards.items() %}
+                <h2>{{ team }}</h2>
+                <ul>
+                    {% for player in players %}
+                        <li>{{ player.player }}: {{ player.yellow_cards }} yellow cards</li>
+                    {% endfor %}
+                </ul>
+            {% endfor %}
+        {% else %}
+            <p>Δεν υπάρχουν διαθέσιμα δεδομένα.</p>
+        {% endif %}
+        <a href="/">Επιστροφή στην αρχική</a>
+    </div>
+</body>
+</html>
